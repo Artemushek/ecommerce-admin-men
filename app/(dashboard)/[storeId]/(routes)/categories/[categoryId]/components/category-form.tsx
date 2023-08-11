@@ -55,7 +55,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
 
   const title = initialData ? 'Edit category' : 'Create category';
   const description = initialData ? 'Edit a category' : 'Add a new category';
-  const toastMessage = initialData ? 'Category updated.' : 'Category created.';
+  const toastMessage = initialData ? 'Category updated' : 'Category created';
   const action = initialData ? 'Save changes' : 'Create';
 
   const form = useForm<CategoryFormValues>({
@@ -78,7 +78,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
       router.push(`/${params.storeId}/categories`);
       toast.success(toastMessage);
     } catch (error: any) {
-      toast.error('Something went wrong.');
+      toast.error('Something went wrong..');
     } finally {
       setLoading(false);
     }
@@ -90,9 +90,9 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
       await axios.delete(`/api/${params.storeId}/categories/${params.categoryId}`);
       router.refresh();
       router.push(`/${params.storeId}/categories`);
-      toast.success('Category deleted.');
+      toast.success('Category deleted');
     } catch (error: any) {
-      toast.error('Make sure you removed all products using this category first.');
+      toast.error('Make sure you removed all products using this category first');
     } finally {
       setLoading(false);
       setOpen(false);
